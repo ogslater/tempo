@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    background: linear-gradient(135deg, #37474f, #232931);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 1s ease;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+.bg-clear-day {
+    background: linear-gradient(135deg, #fbc531, #e1b12c);
+}
+
+.bg-clear-night {
+    background: linear-gradient(135deg, #2f3640, #000000);
+}
+
+.bg-rain-day {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+}
+
+.bg-rain-night {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+}
+
+.bg-cloudy {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+}
+
+.bg-snow {
+    background: linear-gradient(135deg, #dfe6e9, #b2bec3);
+}
+
+
+.container {
+    height: 400px;
+    background-color: #232931;
+    color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+
+.left-info {
+    width: 260px;
+    height: 100%;
+    float: left;
+    display: flex;
+    border-radius: 25px;
+    justify-content: center;
+    background: url("1.jpg");
+    background-position: center;
+    background-size: cover;
+    transform: scale(1.03) perspective(200px);
+    cursor: pointer;
+    box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.left-info:hover {
+    transform: scale(1.1) perspective(2500px) rotateY(5deg);
+}
+
+
+.pic-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, #5c6bc0 10%, #0d47a1 100%);
+    border-radius: 25px;
+    opacity: 0.5;
+}
+
+
+.today-info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    left: 20px;
+}
+
+
+.today-weather {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    bottom: 20px;
+    left: 20px;
+}
+
+.today-weather .bx {
+    font-size: 4.6rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); color: #ffeb3b; }
+    50% { transform: scale(1.1); color: #ffc107; }
+}
+
+.weather-temp {
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+
+
+.right-info {
+    float: right;
+    position: relative;
+    height: 100%;
+    padding-top: 25px;
+}
+
+
+.day-info {
+    padding: 25px 35px;
+    display: flex;
+    flex-direction: column;
+}
+
+.day-info div:not(:last-child) {
+    margin-bottom: 6px;
+}
+
+.day-info div .title {
+    font-weight: 700;
+}
+
+.day-info div .value {
+    float: right;
+}
+
+
+.days-list {
+    display: flex;
+    list-style: none;
+    margin: 10px 35px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+}
+
+.days-list li {
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s, background 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.days-list li .bx {
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+.days-list li:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.days-list li .day-temp {
+    margin-top: 6px;
+    font-weight: 700;
+}
+
+
+.btn-container {
+    padding: 25px 35px;
+}
+
+.loc-button {
+    background: linear-gradient(135deg, #303f9f, #1a237e);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: 25px;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.loc-button:hover {
+    background: linear-gradient(135deg, #3949ab, #283593);
+    transform: translateY(-2px);
+}
