@@ -5,32 +5,20 @@ const todayWeatherIcon = document.querySelector('.today-weather i');
 const todayTemp = document.querySelector('.weather-temp');
 const daysList = document.querySelector('.days-list');
 
-
 const weatherIconMap = {
-    '01d': 'sun',
-    '01n': 'moon',
-    '02d': 'sun',
-    '02n': 'moon',
-    '03d': 'cloud',
-    '03n': 'cloud',
-    '04d': 'cloud',
-    '04n': 'cloud',
-    '09d': 'cloud-rain',
-    '09n': 'cloud-rain',
-    '10d': 'cloud-rain',
-    '10n': 'cloud-rain',
-    '11d': 'cloud-lightning',
-    '11n': 'cloud-lightning',
-    '13d': 'cloud-snow',
-    '13n': 'cloud-snow',
-    '50d': 'water',
-    '50n': 'water'
+    '01d': 'sun', '01n': 'moon',
+    '02d': 'sun', '02n': 'moon',
+    '03d': 'cloud', '03n': 'cloud',
+    '04d': 'cloud', '04n': 'cloud',
+    '09d': 'cloud-rain', '09n': 'cloud-rain',
+    '10d': 'cloud-rain', '10n': 'cloud-rain',
+    '11d': 'cloud-lightning', '11n': 'cloud-lightning',
+    '13d': 'cloud-snow', '13n': 'cloud-snow',
+    '50d': 'water', '50n': 'water'
 };
-
 
 function updateBackground(weather, isDaytime) {
     const body = document.body;
-
     body.classList.remove(
         "bg-clear-day", "bg-clear-night", 
         "bg-rain-day", "bg-rain-night", 
@@ -65,7 +53,6 @@ function fetchWeatherData(location) {
             const todayTemperature = `${Math.round(data.list[0].main.temp)}°C`;
             const todayWeatherIconCode = data.list[0].weather[0].icon;
 
-           
             todayInfo.querySelector('h2').textContent = new Date().toLocaleDateString('pt-BR', { weekday: 'long' });
             todayInfo.querySelector('span').textContent = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
 
@@ -98,11 +85,11 @@ function fetchWeatherData(location) {
                 </div>
             `;
 
-            const today = new Date();
+            const todayDate = new Date();
             const nextDaysData = data.list.slice(1);
-
             const uniqueDays = new Set();
             let count = 0;
+
             daysList.innerHTML = '';
             for (const dayData of nextDaysData) {
                 const forecastDate = new Date(dayData.dt_txt);
@@ -110,7 +97,7 @@ function fetchWeatherData(location) {
                 const dayTemp = `${Math.round(dayData.main.temp)}°C`;
                 const iconCode = dayData.weather[0].icon;
 
-                if (!uniqueDays.has(dayAbbreviation) && forecastDate.getDate() !== today.getDate()) {
+                if (!uniqueDays.has(dayAbbreviation) && forecastDate.getDate() !== todayDate.getDate()) {
                     uniqueDays.add(dayAbbreviation);
                     daysList.innerHTML += `
                         <li>
@@ -133,13 +120,13 @@ function fetchWeatherData(location) {
         });
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     fetchWeatherData('São Paulo'); 
 });
 
 locButton.addEventListener('click', () => {
-    const location = prompt('Digite o nome de uma cidade:');
-    if (!location) return;
-    fetchWeatherData(location);
+    const location = prompt('Digite o nome da cidade:');
+    if (location) {
+        fetchWeatherData(location);
+    }
 });
