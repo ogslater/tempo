@@ -2,23 +2,21 @@ Boletim
 
 Este é um projeto desenvolvido no Curso de Programador Front-End, turma QUA02492025O044 do SENAI Maracanã, ministrado pelo Professor Anthony Freitas.
 
-A página recebe as médias e faz o Cálculo de forma simples e interativa.
+A página recebe a localização e informa a temperatura do local.
 Tecnologias utilizadas
 
     HTML: Estrutura da página
     CSS: Estilização e layout
-    JavaScript: Lógica de média baseada nas notas digitadas.
+    JavaScript: Lógica de temperatura baseada nas localidades.
 
 Funcionalidades
 
-    Recebe os valores postos, para dizer quantos baldes de tinta serão necessários
+    Recebe as localidades e informa a temperatura 
 
 Como usar
 
     Abra o arquivo index.html no navegador.
-    Digitar a altura necessária.
-    Digitar a largura necessária.
-    Digitar a quantidade de parede necessárias.
+    Digite o local desejado.
     Clique no botão correspondente para ver o resultado.
 
 Igor Guterres - Todos os direitos reservados
