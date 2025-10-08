@@ -1,4 +1,4 @@
-Boletim
+TEMPO 
 
 Este é um projeto desenvolvido no Curso de Programador Front-End, turma QUA02492025O044 do SENAI Maracanã, ministrado pelo Professor Anthony Freitas.
 
